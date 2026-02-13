@@ -14,14 +14,11 @@ except ImportError:
     HAS_DOCX2PDF = False
     print("Warning: docx2pdf or pythoncom not found. DOCX->PDF conversion will be disabled.")
 import time
-import pytesseract
+
 import zipfile
 import io
 
 # Configure Tesseract Path
-# Configure Tesseract Path (Only for Windows)
-if os.name == 'nt':
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe' 
  
 
 app = Flask(__name__)
@@ -122,12 +119,8 @@ def convert_engine(input_path, output_path, task_id, target_format):
             doc = Document()
             doc.add_heading('AnyConvert OCR Result', 0)
             
-            extracted_text = ""
             if ext in ['.jpg', '.jpeg', '.png', '.webp']:
-                try:
-                    extracted_text = pytesseract.image_to_string(Image.open(input_path))
-                except Exception as e:
-                    extracted_text = f"Error: Real OCR requires Tesseract-OCR installed on your system. \nDetail: {str(e)}"
+                extracted_text = "OCR is not supported in this serverless environment (requires Tesseract binary)."
             
             doc.add_paragraph(extracted_text if extracted_text.strip() else "No text could be extracted or Tesseract is not installed.")
             doc.add_paragraph("-" * 20)
@@ -137,10 +130,7 @@ def convert_engine(input_path, output_path, task_id, target_format):
         elif target_format == 'txt':
             extracted_text = ""
             if ext in ['.jpg', '.jpeg', '.png', '.webp']:
-                try:
-                    extracted_text = pytesseract.image_to_string(Image.open(input_path))
-                except Exception as e:
-                    extracted_text = f"Error: Real OCR requires Tesseract-OCR installed on your system.\nTo fix this: Install Tesseract-OCR and add it to your System PATH.\n\nTechnical Detail: {str(e)}"
+                extracted_text = "OCR is not supported in this serverless environment (requires Tesseract binary)."
             
             with open(output_path, 'w', encoding='utf-8') as f:
                 header = f"AnyConvert OCR Extracted Text\n{'='*30}\n\n"

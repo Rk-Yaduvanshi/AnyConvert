@@ -5,5 +5,4 @@ python-docx
 PyMuPDF
 Pillow
 gunicorn
-pytesseract
 opencv-python-headless
