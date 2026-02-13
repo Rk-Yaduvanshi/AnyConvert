@@ -3,3 +3,7 @@ flask-cors
 pdf2docx
 python-docx
 PyMuPDF
+Pillow
+gunicorn
+pytesseract
+opencv-python-headless

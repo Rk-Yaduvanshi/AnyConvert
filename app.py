@@ -6,15 +6,23 @@ from flask_cors import CORS
 from pdf2docx import Converter
 from PIL import Image
 import fitz  # PyMuPDF
-from docx2pdf import convert as docx_to_pdf_convert
-import pythoncom
+try:
+    from docx2pdf import convert as docx_to_pdf_convert
+    import pythoncom
+    HAS_DOCX2PDF = True
+except ImportError:
+    HAS_DOCX2PDF = False
+    print("Warning: docx2pdf or pythoncom not found. DOCX->PDF conversion will be disabled.")
 import time
 import pytesseract
 import zipfile
 import io
 
 # Configure Tesseract Path
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe' 
+# Configure Tesseract Path (Only for Windows)
+if os.name == 'nt':
+    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe' 
+ 
 
 app = Flask(__name__)
 CORS(app)
@@ -103,8 +111,11 @@ def convert_engine(input_path, output_path, task_id, target_format):
             doc.close()
             
         elif ext == '.docx' and target_format == 'pdf':
-            pythoncom.CoInitialize()
-            docx_to_pdf_convert(input_path, output_path)
+            if HAS_DOCX2PDF:
+                pythoncom.CoInitialize()
+                docx_to_pdf_convert(input_path, output_path)
+            else:
+                raise Exception("DOCX to PDF conversion is not supported on this server environment (requires Windows/Office).")
             
         elif target_format == 'docx':
             # Create a VALID docx file
