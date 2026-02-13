@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | AnyConvert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .form-control {
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+            background: white;
+        }
+
+        .contact-info-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            height: 100%;
+            transition: var(--transition);
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="convertio-theme">
+    <div class="background-mesh"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-arrows-rotate"></i>
+                <a href="/">Any<span>Convert</span></a>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item has-dropdown">
+                    Convert <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-mega">
+                        <div class="dropdown-column">
+                            <h4>Document</h4>
+                            <a href="/convert/pdf-to-docx">PDF to DOCX</a>
+                            <a href="/convert/docx-to-pdf">DOCX to PDF</a>
+                            <a href="/convert/pdf-to-jpg">PDF to JPG</a>
+                            <a href="/convert/pdf-to-png">PDF to PNG</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Image</h4>
+                            <a href="/convert/jpg-to-pdf">JPG to PDF</a>
+                            <a href="/convert/png-to-pdf">PNG to PDF</a>
+                            <a href="/convert/webp-to-jpg">WEBP to JPG</a>
+                            <a href="/convert/heic-to-jpg">HEIC to JPG</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Audio</h4>
+                            <a href="/convert/mp3-converter">MP3 Converter</a>
+                            <a href="/convert/wav-converter">WAV Converter</a>
+                            <a href="/convert/flac-converter">FLAC Converter</a>
+                            <a href="/convert/ogg-converter">OGG Converter</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Video</h4>
+                            <a href="/convert/mp4-converter">MP4 Converter</a>
+                            <a href="/convert/avi-converter">AVI Converter</a>
+                            <a href="/convert/mov-converter">MOV Converter</a>
+                            <a href="/convert/mkv-converter">MKV Converter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    OCR <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-simple">
+                        <a href="/ocr/image-to-text">Image To Text</a>
+                        <a href="/ocr/scanned-pdf">Scanned PDF To DOCX</a>
+                    </div>
+                </div>
+                <a href="/pricing" class="nav-item">Pricing</a>
+                <a href="/about" class="nav-item">About</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/login" class="btn-text">Log In</a>
+                <a href="/signup" class="btn-primary">Sign Up</a>
+                <button class="mobile-menu-toggle d-md-none" id="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    <i class="fas fa-arrows-rotate"></i>
+                    <span>Any<span>Convert</span></span>
+                </div>
+                <button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="/" class="mobile-nav-item">Home</a>
+                <a href="/pricing" class="mobile-nav-item">Pricing</a>
+                <a href="/about" class="mobile-nav-item">About</a>
+                <a href="/contact" class="mobile-nav-item">Contact</a>
+                <div class="mobile-auth">
+                    <a href="/login" class="btn-text">Log In</a>
+                    <a href="/signup" class="btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-5">
+                <h1 class="display-3 fw-bolder mb-4">Get in <br><span>Touch</span></h1>
+                <p class="lead text-secondary mb-5">Have questions about our enterprise plans or need technical
+                    assistance? Our team is here to help you flow smoothly.</p>
+
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="contact-info-card">
+                            <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                            <h5 class="fw-bold">Email Support</h5>
+                            <p class="text-secondary mb-0">support@pdfflow.pro</p>
+                            <p class="text-secondary small">Response within 24 hours</p>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="contact-info-card">
+                            <div class="icon-box"><i class="fas fa-location-dot"></i></div>
+                            <h5 class="fw-bold">Global Headquarters</h5>
+                            <p class="text-secondary mb-0">123 Innovation Drive, Tech Valley, CA 94043</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="glass p-5 rounded-5 border-0 shadow-lg">
+                    <form action="#" method="POST">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-uppercase mb-2">Full Name</label>
+                                <input type="text" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold small text-uppercase mb-2">Email Address</label>
+                                <input type="email" class="form-control" placeholder="john@example.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold small text-uppercase mb-2">Subject</label>
+                                <select class="form-select form-control">
+                                    <option>Technical Support</option>
+                                    <option>Enterprise Inquiry</option>
+                                    <option>Billing Question</option>
+                                    <option>General Feedback</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label fw-bold small text-uppercase mb-2">Your Message</label>
+                                <textarea class="form-control" rows="5" placeholder="How can we help you today?"
+                                    required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100 rounded-pill py-3 fw-bold shadow-sm"
+                                    style="background: var(--primary-gradient); border: none;">
+                                    Send Message <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5">
+        <div class="container footer-bottom">
+            <p>&copy; 2024 PDFFlow Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

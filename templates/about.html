@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AnyConvert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="convertio-theme">
+    <div class="background-mesh"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-arrows-rotate"></i>
+                <a href="/">Any<span>Convert</span></a>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item has-dropdown">
+                    Convert <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-mega">
+                        <div class="dropdown-column">
+                            <h4>Document</h4>
+                            <a href="/convert/pdf-to-docx">PDF to DOCX</a>
+                            <a href="/convert/docx-to-pdf">DOCX to PDF</a>
+                            <a href="/convert/pdf-to-jpg">PDF to JPG</a>
+                            <a href="/convert/pdf-to-png">PDF to PNG</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Image</h4>
+                            <a href="/convert/jpg-to-pdf">JPG to PDF</a>
+                            <a href="/convert/png-to-pdf">PNG to PDF</a>
+                            <a href="/convert/webp-to-jpg">WEBP to JPG</a>
+                            <a href="/convert/heic-to-jpg">HEIC to JPG</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Audio</h4>
+                            <a href="/convert/mp3-converter">MP3 Converter</a>
+                            <a href="/convert/wav-converter">WAV Converter</a>
+                            <a href="/convert/flac-converter">FLAC Converter</a>
+                            <a href="/convert/ogg-converter">OGG Converter</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Video</h4>
+                            <a href="/convert/mp4-converter">MP4 Converter</a>
+                            <a href="/convert/avi-converter">AVI Converter</a>
+                            <a href="/convert/mov-converter">MOV Converter</a>
+                            <a href="/convert/mkv-converter">MKV Converter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    OCR <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-simple">
+                        <a href="/ocr/image-to-text">Image To Text</a>
+                        <a href="/ocr/scanned-pdf">Scanned PDF To DOCX</a>
+                    </div>
+                </div>
+                <a href="/pricing" class="nav-item">Pricing</a>
+                <a href="/about" class="nav-item">About</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/login" class="btn-text">Log In</a>
+                <a href="/signup" class="btn-primary">Sign Up</a>
+                <button class="mobile-menu-toggle d-md-none" id="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    <i class="fas fa-arrows-rotate"></i>
+                    <span>Any<span>Convert</span></span>
+                </div>
+                <button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="/" class="mobile-nav-item">Home</a>
+                <a href="/pricing" class="mobile-nav-item">Pricing</a>
+                <a href="/about" class="mobile-nav-item">About</a>
+                <a href="/contact" class="mobile-nav-item">Contact</a>
+                <div class="mobile-auth">
+                    <a href="/login" class="btn-text">Log In</a>
+                    <a href="/signup" class="btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <section class="text-center mb-5">
+            <h1 class="display-3 fw-bolder mb-3">Our Mission</h1>
+            <p class="lead text-secondary mx-auto" style="max-width: 800px;">We believe document management should be
+                effortless, secure, and beautiful. PDFFlow was born from a need for precision conversion without
+                compromise.</p>
+        </section>
+
+        <section class="row g-5 py-5">
+            <div class="col-lg-6">
+                <div class="p-5 glass border-0 rounded-5 h-100">
+                    <h2 class="fw-bold mb-4">The Story Behind PDFFlow</h2>
+                    <p class="text-secondary mb-4">Founded in 2024, PDFFlow started as a small internal tool for a team
+                        of designers and engineers who were tired of low-quality PDF converters. We realized that many
+                        tools on the market either destroyed the document layout or were riddled with privacy concerns.
+                    </p>
+                    <p class="text-secondary">We spent months developing our proprietary high-fidelity rendering engine
+                        that treats every pixel with respect. Today, PDFFlow handles millions of conversions monthly,
+                        providing enterprise-grade precision to everyone.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-5 bg-dark text-white rounded-5 h-100 shadow-lg">
+                    <h2 class="fw-bold mb-4 text-white">Why We're Different</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-4 d-flex gap-3">
+                            <i class="fas fa-check-circle text-primary fs-4"></i>
+                            <div>
+                                <h5 class="fw-bold">No-Data Policy</h5>
+                                <p class="text-white-50 small">We don't just delete files; we never "see" them. Our
+                                    processing is isolated and encrypted.</p>
+                            </div>
+                        </li>
+                        <li class="mb-4 d-flex gap-3">
+                            <i class="fas fa-check-circle text-primary fs-4"></i>
+                            <div>
+                                <h5 class="fw-bold">Pixel Perfect Reality</h5>
+                                <p class="text-white-50 small">Tables, fonts, and graphics stay exactly where they
+                                    belong. No shifts, no errors.</p>
+                            </div>
+                        </li>
+                        <li class="d-flex gap-3">
+                            <i class="fas fa-check-circle text-primary fs-4"></i>
+                            <div>
+                                <h5 class="fw-bold">Design First</h5>
+                                <p class="text-white-50 small">We believe tools should be a joy to use. Our UI is
+                                    crafted for focus and elegance.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="text-center py-5">
+            <h2 class="fw-bold mb-5">Trusted by Innovators</h2>
+            <div class="d-flex flex-wrap justify-content-center gap-5 opacity-50">
+                <i class="fab fa-apple fs-1"></i>
+                <i class="fab fa-google fs-1"></i>
+                <i class="fab fa-microsoft fs-1"></i>
+                <i class="fab fa-amazon fs-1"></i>
+                <i class="fab fa-facebook fs-1"></i>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>&copy; 2024 PDFFlow Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

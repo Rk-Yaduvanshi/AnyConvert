@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | AnyConvert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .policy-container {
+            background: white;
+            border-radius: 3rem;
+            padding: 5rem;
+            border: 1px solid var(--border);
+            line-height: 1.8;
+        }
+
+        .policy-container h2 {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .policy-container p,
+        .policy-container li {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .toc-link {
+            display: block;
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .toc-link:hover {
+            color: var(--primary);
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body class="convertio-theme">
+    <div class="background-mesh"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-arrows-rotate"></i>
+                <a href="/">Any<span>Convert</span></a>
+            </div>
+            <div class="nav-menu">
+                <a href="/" class="nav-item">Home</a>
+                <a href="/pricing" class="nav-item">Pricing</a>
+                <a href="/about" class="nav-item">About</a>
+                <a href="/contact" class="nav-item">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/login" class="btn-primary">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container py-5">
+        <div class="row">
+            <div class="col-lg-3 d-none d-lg-block">
+                <div class="sticky-top" style="top: 120px;">
+                    <h6 class="fw-bold mb-4 text-uppercase letter-spacing-1">On This Page</h6>
+                    <a href="#collection" class="toc-link">Data Collection</a>
+                    <a href="#usage" class="toc-link">How We Use Data</a>
+                    <a href="#security" class="toc-link">Data Security</a>
+                    <a href="#cookies" class="toc-link">Cookie Usage</a>
+                    <a href="#rights" class="toc-link">Your Rights</a>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="policy-container shadow-sm border-0">
+                    <h1 class="display-4 fw-bolder mb-5">Privacy Policy</h1>
+                    <p class="lead mb-5">Last updated: February 12, 2024. Your privacy is at the heart of our mission.
+                    </p>
+
+                    <section id="collection">
+                        <h2>1. Data Collection</h2>
+                        <p>At PDFFlow, we minimize the data we collect. We do not require account creation for basic
+                            conversion tasks. If you use our services, we may collect:</p>
+                        <ul>
+                            <li>The files you upload (deleted instantly after processing).</li>
+                            <li>Technical logs for debugging (IP addresses are anonymized).</li>
+                            <li>Email addresses for account-based features.</li>
+                        </ul>
+                    </section>
+
+                    <section id="usage">
+                        <h2>2. How We Use Data</h2>
+                        <p>We use your data strictly to provide and improve the services you request. We never sell your
+                            personal information or the content of your documents to third parties. Document processing
+                            is automated and isolated from human oversight.</p>
+                    </section>
+
+                    <section id="security">
+                        <h2>3. Security Standards</h2>
+                        <p>We employ enterprise-grade security protocols:</p>
+                        <ul>
+                            <li>AES-256 encryption at rest.</li>
+                            <li>TLS/SSL encryption for data in transit.</li>
+                            <li>Automated deletion scripts that wipe temporary storage every hour.</li>
+                        </ul>
+                    </section>
+
+                    <section id="cookies">
+                        <h2>4. Cookie Policy</h2>
+                        <p>We use essential cookies to maintain your session and preferences. Analytics cookies are only
+                            used with your explicit consent to help us understand how users navigate our site.</p>
+                    </section>
+
+                    <section id="rights">
+                        <h2>5. Your Rights</h2>
+                        <p>Under GDPR and CCPA, you have the right to access, delete, or port your data. You can request
+                            a complete data export from your account settings at any time.</p>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-5">
+        <div class="container footer-bottom">
+            <p>&copy; 2024 PDFFlow Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

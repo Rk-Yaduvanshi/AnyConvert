@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnyConvert | The All-in-One Global File Converter</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Convert any file with AnyConvert. The most powerful, secure, and fast file converter for PDF, DOCX, Images, Video, and OCR. Trusted locally for maximum privacy.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="convertio-theme">
+    <div class="background-mesh"></div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <i class="fas fa-arrows-rotate"></i>
+                <a href="/">Any<span>Convert</span></a>
+            </div>
+
+            <div class="nav-menu">
+                <div class="nav-item has-dropdown">
+                    Convert <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-mega">
+                        <div class="dropdown-column">
+                            <h4>Document</h4>
+                            <a href="/convert/pdf-to-docx">PDF to DOCX</a>
+                            <a href="/convert/docx-to-pdf">DOCX to PDF</a>
+                            <a href="/convert/pdf-to-jpg">PDF to JPG</a>
+                            <a href="/convert/pdf-to-png">PDF to PNG</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Image</h4>
+                            <a href="/convert/jpg-to-pdf">JPG to PDF</a>
+                            <a href="/convert/png-to-pdf">PNG to PDF</a>
+                            <a href="/convert/webp-to-jpg">WEBP to JPG</a>
+                            <a href="/convert/heic-to-jpg">HEIC to JPG</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Audio</h4>
+                            <a href="/convert/mp3-converter">MP3 Converter</a>
+                            <a href="/convert/wav-converter">WAV Converter</a>
+                            <a href="/convert/flac-converter">FLAC Converter</a>
+                            <a href="/convert/ogg-converter">OGG Converter</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Video</h4>
+                            <a href="/convert/mp4-converter">MP4 Converter</a>
+                            <a href="/convert/avi-converter">AVI Converter</a>
+                            <a href="/convert/mov-converter">MOV Converter</a>
+                            <a href="/convert/mkv-converter">MKV Converter</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item has-dropdown">
+                    OCR <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown-simple">
+                        <a href="/ocr/image-to-text">Image To Text</a>
+                        <a href="/ocr/scanned-pdf">Scanned PDF To DOCX</a>
+                    </div>
+                </div>
+                <a href="/pricing" class="nav-item">Pricing</a>
+                <a href="/about" class="nav-item">About</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="/login" class="btn-text">Log In</a>
+                <a href="/signup" class="btn-primary">Sign Up</a>
+                <button class="mobile-menu-toggle d-md-none" id="mobile-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="logo">
+                    <i class="fas fa-arrows-rotate"></i>
+                    <span>Any<span>Convert</span></span>
+                </div>
+                <button class="close-menu" id="close-menu"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="/" class="mobile-nav-item">Home</a>
+                <a href="/pricing" class="mobile-nav-item">Pricing</a>
+                <a href="/about" class="mobile-nav-item">About</a>
+                <a href="/contact" class="mobile-nav-item">Contact</a>
+                <div class="mobile-auth">
+                    <a href="/login" class="btn-text">Log In</a>
+                    <a href="/signup" class="btn-primary">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-center">
+            <h1>The New Standard in <br><span>File Conversion</span></h1>
+            <p>Experience the most elegant, powerful, and secure way to manage your documents and media. Built for
+                precision.</p>
+        </section>
+
+        <section class="mega-converter" id="drop-zone">
+            <!-- Initial Upload UI -->
+            <div class="upload-stage" id="upload-stage">
+                <div class="upload-interaction">
+                    <div class="upload-circle">
+                        <i class="fas fa-cloud-arrow-up"></i>
+                    </div>
+                    <h2>Choose Files</h2>
+                    <p>Drag & drop files here, or use the premium upload options</p>
+
+                    <div class="source-group">
+                        <button class="btn-main-upload" onclick="document.getElementById('file-input').click()">
+                            <i class="fas fa-plus"></i> Select Files
+                        </button>
+                        <div class="cloud-icons">
+                            <button title="Google Drive"><i class="fab fa-google-drive"></i></button>
+                            <button title="Dropbox"><i class="fab fa-dropbox"></i></button>
+                            <button title="URL"><i class="fas fa-link"></i></button>
+                        </div>
+                    </div>
+                    <input type="file" id="file-input" multiple hidden>
+                </div>
+            </div>
+
+            <!-- Batch Processing UI -->
+            <div class="batch-stage" id="batch-stage" style="display: none;">
+                <div class="batch-header">
+                    <span>File Name</span>
+                    <span>Size</span>
+                    <div class="global-selection">
+                        to
+                        <div class="custom-select-wrapper">
+                            <select id="global-format">
+                                <option value="docx">DOCX</option>
+                                <option value="pdf">PDF</option>
+                                <option value="jpg">JPG</option>
+                                <option value="png">PNG</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="file-list" id="file-list">
+                    <!-- Dynamic file items -->
+                </div>
+                <div class="batch-footer">
+                    <button class="btn-add-more" onclick="document.getElementById('file-input').click()">
+                        <i class="fas fa-plus"></i> Add more files
+                    </button>
+                    <div class="d-flex gap-3">
+                        <button class="btn-convert-all shadow-sm" id="download-all-btn"
+                            style="display: none; background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);">
+                            <i class="fas fa-file-archive me-1"></i> Download All
+                        </button>
+                        <button class="btn-convert-all" id="convert-all-btn">
+                            Convert <i class="fas fa-chevron-right ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-grid">
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fas fa-shield-check"></i></div>
+                <h3>Enterprise Security</h3>
+                <p>Your privacy is our priority. Files are encrypted during transit and deleted instantly after
+                    processing.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fas fa-sparkles"></i></div>
+                <h3>High Fidelity</h3>
+                <p>Our conversion engine preserves layouts, tables, and formatting with unprecedented accuracy.</p>
+            </div>
+            <div class="feature-item">
+                <div class="feat-icon"><i class="fas fa-bolt-lightning"></i></div>
+                <h3>Rapid Processing</h3>
+                <p>Powerful cloud servers ensure your conversions are completed in seconds, not minutes.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <i class="fas fa-arrows-rotate"></i>
+                    <span>Any<span>Convert</span></span>
+                </div>
+                <p>The premium choice for millions of users worldwide seeking high-fidelity file conversion and document
+                    management.</p>
+            </div>
+            <div class="footer-col">
+                <h4>PRODUCTS</h4>
+                <a href="/convert/pdf-to-docx">PDF to Word</a>
+                <a href="/convert/jpg-to-pdf">Image to PDF</a>
+                <a href="/ocr/image-to-text">OCR Text</a>
+                <a href="/convert/mp4-converter">Video Converter</a>
+            </div>
+            <div class="footer-col">
+                <h4>RESOURCES</h4>
+                <a href="/pricing">Pricing</a>
+                <a href="#">Documentation</a>
+                <a href="/about">Case Studies</a>
+                <a href="/contact">Support</a>
+            </div>
+            <div class="footer-col">
+                <h4>LEGAL</h4>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="#">Security</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 AnyConvert Inc. Handcrafted with precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
